@@ -1,0 +1,23 @@
+from twilio.rest import TwilioRestClient 
+import time
+ 
+# put your own credentials here 
+n=raw_input("How many hours till I send this message? ")
+#input for wait time for program
+n=float((n))
+n=n*60*60
+#conversion to hours
+body = raw_input("What should I send? ")
+#input for message
+
+time.sleep(n)
+ACCOUNT_SID = ""#enter ACCOUNT_SIN here 
+AUTH_TOKEN = "" #enter token here
+ 
+client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN) 
+ 
+client.messages.create(
+        body=body,
+        to="+",#enter personal number
+	    from_="+"#enter twilio number,
+)
